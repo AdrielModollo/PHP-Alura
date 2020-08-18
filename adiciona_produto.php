@@ -16,10 +16,12 @@
       
        //Foi colocado uma condição para verificar se o produto foi adicionado ou não.
        if (insereProduto($conexao, $nome, $preco)){ ?>
-            <!--     "alert-success" permite deixar o background verde -->
-            <p class="text-success"> Produto <?php echo $nome; ?> , <?php echo $preco; ?> adicionado com sucesso </p>
-        <?php  } else { ?>
-            <p class="text-danger"> Produto <?=  $nome ?>  não foi adicionado. </p>
+            <!--    "alert-success" permite deixar o background verde -->
+            <p class="text-success"> Produto <?= $nome ?>, <?= $preco ?>  adicionado com sucesso </p>
+        <?php  } else { 
+         $msg = mysqli_error($conexao);
+            ?>
+            <p class="text-danger"> Produto <?=  $nome ?>  não foi adicionado: <?= $msg ?> </p>
         <?php
         
         }
