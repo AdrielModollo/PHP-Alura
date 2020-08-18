@@ -1,4 +1,6 @@
 <?php include("cabecalho.php");?>
+<?php include("conecta.php");?>
+
     <?php
         //Cria uma função que é chamada uma única vez
         function insereProduto($conexao, $nome, $preco) {
@@ -11,8 +13,6 @@
         /*Está é a resposta que foi solicitada através do produto_formulario */
         $nome = $_GET["nome"];
         $preco = $_GET["preco"];
-        //Conecta com o banco de dados MySql
-        $conexao = mysqli_connect ('localhost', 'root', '', 'loja');
       
        //Foi colocado uma condição para verificar se o produto foi adicionado ou não.
        if (insereProduto($conexao, $nome, $preco)){ ?>
