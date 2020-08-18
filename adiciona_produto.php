@@ -1,14 +1,7 @@
-<?php include("cabecalho.php");?>
-<?php include("conecta.php");?>
-
-    <?php
-        //Cria uma função que é chamada uma única vez
-        function insereProduto($conexao, $nome, $preco) {
-            //É informado parametros que o servidor vai receber
-            $query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
-            //Retorna o resultado do mysql query
-            return mysqli_query($conexao, $query);
-        }
+<?php 
+include("cabecalho.php");
+include("conecta.php");
+include("banco_produto.php");
 
         /*Está é a resposta que foi solicitada através do produto_formulario */
         $nome = $_GET["nome"];
