@@ -1,5 +1,6 @@
 <html>
     <?php
+        /*Está é requisão que foi solicitada através do produto_formulario */
         $nome = $_GET["nome"];
         $preco = $_GET["preco"];
     ?>
