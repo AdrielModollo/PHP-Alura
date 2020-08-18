@@ -16,6 +16,7 @@ include("banco_produto.php"); ?>
     <tr>
         <td><b>Nome do produto</b></td>
         <td><b>Preço</b></td>
+        <td><b>Descrição</b></td>
         <td> </td>
     </tr>
     <?php
@@ -27,8 +28,14 @@ include("banco_produto.php"); ?>
     <tr> 
         <td><?= $produto['nome'] ?></td>
         <td><?= $produto['preco'] ?></td>
-        <td><a href="remove_produto.php?id=<?=$produto['id']?>" class="text-danger">remover</td>
-    </tr>
+        <td><?= substr($produto['descricao'], 0, 60) ?></td>
+        <td>
+            <form action="remove_produto.php?id=<?=$produto['id']?>" method="post">
+            <input type="hidden" name="id" value="<?= $produto['id']?>">
+            <button class="btn btn-danger">remover</button>
+        </form>
+        </td>
+ </tr>
     <?php
         }
     ?>
