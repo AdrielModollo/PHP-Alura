@@ -1,4 +1,4 @@
-<html>
-    <!--Foi para o servidor fez a comunicação e retornou o valor abaixo -->
-     <h1>Bem vindo!</h1>
-</html>
+<?php include("cabecalho.php");?>
+        <h1>Bem vindo!</h1>
+    <?php include("rodape.php");?>
+  
