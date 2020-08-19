@@ -16,9 +16,9 @@
     
 
     //Cria uma função que é chamada uma única vez para adição de produtos
-    function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id) {
+    function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
         //É informado parametros que o servidor vai receber
-        $query = "insert into produtos (nome, preco, descricao, categoria_id) values ('{$nome}', {$preco} , '{$descricao}' , '{$categoria_id}')";
+        $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values ('{$nome}', {$preco} , '{$descricao}' , {$categoria_id} , {$usado})";
         //Retorna o resultado do mysql query
         return mysqli_query($conexao, $query);
     }
