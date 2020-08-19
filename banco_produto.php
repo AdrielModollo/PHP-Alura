@@ -4,7 +4,7 @@
     function listaProdutos($conexao){
         $produtos = array();
         //select para busca de produtos atribuido a uma variavel resultado
-        $resultado = mysqli_query($conexao, "select * from produtos");
+        $resultado = mysqli_query($conexao, "select p.*,c.nome as categoria_nome from produtos as p join categorias as c on p.categoria_id = c.id");
         //equanto existir produtos é executado
             while($produto = mysqli_fetch_assoc($resultado)) {
                 //array puxa todos os produtos armazenado na váriavel $produto.   
@@ -16,9 +16,9 @@
     
 
     //Cria uma função que é chamada uma única vez para adição de produtos
-    function insereProduto($conexao, $nome, $preco, $descricao) {
+    function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id) {
         //É informado parametros que o servidor vai receber
-        $query = "insert into produtos (nome, preco, descricao) values ('{$nome}', {$preco} , '{$descricao}')";
+        $query = "insert into produtos (nome, preco, descricao, categoria_id) values ('{$nome}', {$preco} , '{$descricao}' , '{$categoria_id}')";
         //Retorna o resultado do mysql query
         return mysqli_query($conexao, $query);
     }

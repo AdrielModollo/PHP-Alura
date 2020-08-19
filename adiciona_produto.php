@@ -7,10 +7,12 @@ include("banco_produto.php");
         $nome = $_POST["nome"];
         $preco = $_POST["preco"];
         $descricao = $_POST["descricao"];
-      
+        $categoria_id = $_POST['categoria_id'];
+
+
         //GET FOI FEITO PARA TRAZER DADOS
        //Foi colocado uma condição para verificar se o produto foi adicionado ou não.
-       if (insereProduto($conexao, $nome, $preco, $descricao)){ ?>
+       if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $categoria_id)){ ?>
             <!--    "alert-success" permite deixar o background verde -->
             <p class="text-success"> Produto <?= $nome ?>, <?= $preco ?>, <?= $descricao ?> adicionado com sucesso </p>
         <?php  } else { 
