@@ -23,6 +23,12 @@
         return mysqli_query($conexao, $query);
     }
 
+    //busca os produtos para retornar no formulário
+    function buscaProduto($conexao, $id) {
+        $query = "select *from produtos where id = {$id}";
+        $resultado = mysqli_query($conexao, $query);
+        return mysqli_fetch_assoc($resultado);
+    }
 
     //Remoção de produtos
 
@@ -30,5 +36,15 @@
         $query = "delete from produtos where id = {$id}";
         return mysqli_query($conexao, $query);
     }
+
+    //Altera os dados do produto
+    function alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado) {
+        //É informado parametros que o servidor vai receber
+        $query = "update produtos set nome = '{$nome}', preco = {$preco} , descricao = '{$descricao}', categoria_id = {$categoria_id}, usado = {$usado} where id = '{$id}'";
+      
+        //Retorna o resultado do mysql query
+        return mysqli_query($conexao, $query);
+    }
+
 
 ?>
